@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>projectName-web</artifactId>
+    <artifactId>Anthophila-web</artifactId>
     <packaging>war</packaging>
     <parent>
         <groupId>xxxxxx.yyyyyy.zzzzzz</groupId>
-        <artifactId>projectName</artifactId>
+        <artifactId>Anthophila</artifactId>
         <version>5.6.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
@@ -43,7 +43,7 @@
             <dependencies>
                 <dependency>
                     <groupId>${project.groupId}</groupId>
-                    <artifactId>projectName-env</artifactId>
+                    <artifactId>Anthophila-env</artifactId>
                 </dependency>
             </dependencies>
         </profile>
@@ -57,7 +57,7 @@
             <dependencies>
                 <dependency>
                     <groupId>${project.groupId}</groupId>
-                    <artifactId>projectName-env</artifactId>
+                    <artifactId>Anthophila-env</artifactId>
                     <exclusions>
                         <exclusion>
                             <groupId>com.h2database</groupId>
@@ -72,7 +72,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>projectName-domain</artifactId>
+            <artifactId>Anthophila-domain</artifactId>
         </dependency>
 
         <!-- == Begin TERASOLUNA == -->

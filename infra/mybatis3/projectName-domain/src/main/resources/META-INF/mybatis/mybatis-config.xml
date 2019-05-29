@@ -17,8 +17,8 @@
     </settings>
 
     <typeAliases>
-        <package name="xxxxxx.yyyyyy.zzzzzz.domain.model" />
-        <package name="xxxxxx.yyyyyy.zzzzzz.domain.repository" />
+        <package name="org.com.anthophila.domain.model" />
+        <package name="org.com.anthophila.domain.repository" />
 <!--
         <package name="xxxxxx.yyyyyy.zzzzzz.infra.mybatis.typehandler" />
 -->

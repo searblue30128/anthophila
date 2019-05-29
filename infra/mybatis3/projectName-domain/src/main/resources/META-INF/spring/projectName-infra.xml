@@ -16,6 +16,6 @@
     </bean>
 
     <!-- scan for Mappers -->
-    <mybatis:scan base-package="xxxxxx.yyyyyy.zzzzzz.domain.repository" />
+    <mybatis:scan base-package="org.com.anthophila.domain.repository" />
 
 </beans>
