@@ -7,7 +7,7 @@
     <parent>
         <version>5.6.0-SNAPSHOT</version>
         <artifactId>Anthophila</artifactId>
-        <groupId>xxxxxx.yyyyyy.zzzzzz</groupId>
+        <groupId>org.com.anthophila</groupId>
         <relativePath>../pom.xml</relativePath>
     </parent>
 

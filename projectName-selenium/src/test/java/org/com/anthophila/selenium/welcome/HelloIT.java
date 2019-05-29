@@ -1,4 +1,4 @@
-package xxxxxx.yyyyyy.zzzzzz.selenium.welcome;
+package org.com.anthophila.selenium.welcome;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

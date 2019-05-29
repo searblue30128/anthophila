@@ -1,4 +1,4 @@
-package xxxxxx.yyyyyy.zzzzzz.app.welcome;
+package org.com.anthophila.app.welcome;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class logingController2 {
 
-    private static final Logger logger = LoggerFactory
-            .getLogger(logingController2.class);
+    @SuppressWarnings("unused")
+	private static final Logger logger =  LoggerFactory.getLogger(logingController2.class);
 
     /**
      * Simply selects the home view to render by returning its name.

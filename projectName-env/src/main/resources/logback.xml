@@ -2,6 +2,11 @@
 <!DOCTYPE configuration>
 <configuration>
 
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern><![CDATA[date:%d{yyyy-MM-dd HH:mm:ss}\tthread:%thread\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-48logger{48}\tmessage:%msg%n]]></pattern>
@@ -34,7 +39,7 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="xxxxxx.yyyyyy.zzzzzz">
+    <logger name="org.com.anthophila">
         <level value="debug" />
     </logger>
 
