@@ -1,4 +1,5 @@
-﻿git&bitbucket手順
+﻿//修改測試.annhill//
+git&bitbucket手順
 1.點選邀請函進入bitbucket的repository頁面
 2.點選專案名稱(Anthophila)右邊的Clone按鈕，取得以下git指令
 git clone https://annhill@bitbucket.org/anthophila2019/anthophila.git
@@ -12,16 +13,16 @@ C:\Users\annhill\Desktop
 7.此資料夾本身就已設定由git控管並與遠端(bitbucket)連線
 每次作業的指令和說明如下:
 
-(1)pull: 與遠端資料庫同期化 
+(1)pull: 與遠端資料庫同期化
 (2)作業(編輯檔案)
 (3)add: 將想上傳的檔案加入commit前的準備區
-    在git add後面輸入檔案名稱，或輸入"add ."代表將所有編輯過的檔案都加入準備區  
+    在git add後面輸入檔案名稱，或輸入"add ."代表將所有編輯過的檔案都加入準備區
 (4)commit: 將編輯過的檔案更新至本地的專案資料夾,並在" "中填入說明資訊
 (5)push: 將更新過的資料上傳至遠端資料庫
 完整的指令如下:
-git pull 
-git add . 
-git commit -m "ex:annhill's first commit" 
+git pull
+git add .
+git commit -m "ex:annhill's first commit"
 git push origin master
 
 
