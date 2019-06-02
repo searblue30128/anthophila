@@ -4,12 +4,17 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * Handles requests for the application home page.
@@ -17,26 +22,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class loginController {
 
-	private static final Logger logger =  LoggerFactory.getLogger(loginController.class);
+    private static final Logger logger = LoggerFactory.getLogger(loginController.class);
 
     /**
      * Simply selects the home view to render by returning its name.
      */
-    @RequestMapping(value = "/home", method = {RequestMethod.GET})
+    @RequestMapping(value = "/home", method = { RequestMethod.GET })
     public String home(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
-
         Date date = new Date();
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG,
-                DateFormat.LONG, locale);
-
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
         String formattedDate = dateFormat.format(date);
-
         model.addAttribute("serverTime", formattedDate);
-
         model.addAttribute("testStr", "測試登入");
-
         return "home/login";
     }
 
+    @RequestMapping("/index")
+    public String doLogin(Model model, @ModelAttribute("userName") String userName, @ModelAttribute("password") String password, HttpServletRequest req) {
+        System.out.println("userName = " + userName);
+        System.out.println("password = " + password);
+        // Get the web application context, all spring beans are managed in this context. 
+        WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(req.getServletContext());
+        //        UserAccountBean userAccountBean = (UserAccountBean)context.getBean("userAccountBean");
+        return "welcome/home";
+    }
 }
