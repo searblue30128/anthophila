@@ -1,4 +1,4 @@
-package org.com.anthophila.app.welcome;
+package org.com.anthophila.app.home;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -15,15 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-public class logingController2 {
+public class loginController {
 
-    @SuppressWarnings("unused")
-	private static final Logger logger =  LoggerFactory.getLogger(logingController2.class);
+	private static final Logger logger =  LoggerFactory.getLogger(loginController.class);
 
     /**
      * Simply selects the home view to render by returning its name.
      */
-    @RequestMapping(value = "/loging", method = {RequestMethod.GET})
+    @RequestMapping(value = "/home", method = {RequestMethod.GET})
     public String home(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -35,7 +34,9 @@ public class logingController2 {
 
         model.addAttribute("serverTime", formattedDate);
 
-        return "welcome/login";
+        model.addAttribute("testStr", "測試登入");
+
+        return "home/login";
     }
 
 }
