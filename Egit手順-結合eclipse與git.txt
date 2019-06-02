@@ -1,0 +1,32 @@
+﻿一、安裝EGit
+1.打開eclipse -> help(ヘルプ) -> install New Software（新規ソフトウェア）
+2.在安裝視窗中,點選右側的add(追加)
+3.在name欄輸入EGit(可自選命名),在Location欄輸入http://download.eclipse.org/egit/updates/
+4.確認後在下拉選單選擇EGit,安裝細目會出現三個選項，勾選1和3(2是實驗機能不勾選)
+5.之後照指引點選確認，重啟eclipse，即完成EGit的安裝。
+
+二、導入專案
+1.打開eclipse -> file(ファイル) -> import（インポート）
+2.選擇Git -> Gitからプロジェクト -> Clone URI(クローン URI)
+3.將專案網址貼到URI欄(例:https://annhill@bitbucket.org/anthophila2019/anthophila.git)
+注意:連結專案需要自己的網址和帳密，要取得網址請點選邀請函進入bitbucket中的專案網頁，在專案名稱的右邊有Clone按鈕，點選即可取得像下面這樣的網址。
+git clone https://annhill@bitbucket.org/anthophila2019/anthophila.git
+其中git clone的部分不需要，只取後面網址(http://...)即可
+4.選擇本端儲存位置(ローカル宛先),必須新建一個空資料夾。
+5.確認後eclipse會抓取遠端資料放到本地的資料夾。接著要把這資料夾import進eclipse。選擇一般project。以上即完成專案導入。
+
+三、團隊協作
+在專案名稱上按右鍵,選擇team即可看到團隊協作相關選項。
+作業前
+先從遠端pull(プル)最新檔案
+
+作業後
+點選commit(コミット)上傳檔案
+首先會跳出Gitステージング視窗，在這邊確認本次更新的檔案
+一開始所有變更過的檔案會在ステージされていない欄
+選取要commit的檔案，移動到ステージされた欄（利用旁邊的++符號）
+輸入commit message(關於本次更新的內容說明之類的)
+最後按下右下方的commit&push(更新本地資料夾，並上傳至遠端)
+
+其他
+點選history(ヒストリー)可查看git更新履歷
