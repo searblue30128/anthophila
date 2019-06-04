@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.com.anthophila.domain.repository.employee.EmployeeRepository">
+
+  <resultMap id="EmployeeResultMap" type="Employee">
+    <id property="employeeNo" column="employee_no" />
+    <result property="employeePass" column="employee_pass" />
+    <result property="employeeTryNo" column="employee_try_no" />
+    <result property="employeePur" column="employee_pur" />
+  </resultMap>
+
+  <select id="findByNo" parameterType="string" resultMap="EmployeeResultMap">
+    SELECT
+    employee_no,
+    employee_pass,
+    employee_try_no,
+    employee_pur
+    FROM
+    employee
+    WHERE
+    employee_no = #{employeeNo}
+  </select>
+</mapper>

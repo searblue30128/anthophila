@@ -44,13 +44,13 @@
             <type>pom</type>
         </dependency>
               REMOVE THIS LINE IF YOU USE JPA  -->
-        <!--  REMOVE THIS LINE IF YOU USE MyBatis3
+
         <dependency>
             <groupId>org.terasoluna.gfw</groupId>
             <artifactId>terasoluna-gfw-mybatis3-dependencies</artifactId>
             <type>pom</type>
         </dependency>
-              REMOVE THIS LINE IF YOU USE MyBatis3  -->
+
         <dependency>
             <groupId>org.terasoluna.gfw</groupId>
             <artifactId>terasoluna-gfw-recommended-dependencies</artifactId>
@@ -59,11 +59,11 @@
         <!-- == End TERASOLUNA == -->
 
         <!-- == Begin Database == -->
-<!--         <dependency> -->
-<!--             <groupId>org.postgresql</groupId> -->
-<!--             <artifactId>postgresql</artifactId> -->
-<!--             <scope>test</scope> -->
-<!--         </dependency> -->
+         <dependency>
+             <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+             <scope>test</scope>
+         </dependency>
 <!--         <dependency> -->
 <!--             <groupId>com.oracle.jdbc</groupId> -->
 <!--             <artifactId>ojdbc8</artifactId> -->
@@ -112,13 +112,13 @@
         <!-- == End Unit Test == -->
 
         <!-- == Begin Coding Support == -->
-        <!--
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-        -->
+
         <!-- == End Coding Support == -->
 
     </dependencies>
