@@ -4,9 +4,11 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.com.anthophila.domain.model.Employee;
+import org.com.anthophila.domain.repository.employee.EmployeeRepository;
 import org.com.anthophila.domain.service.employee.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +28,11 @@ public class loginController {
 
     private static final Logger logger = LoggerFactory.getLogger(loginController.class);
 
+    @Inject
     EmployeeService employeeService;
+
+    @Inject
+    EmployeeRepository employeeRepository;
 
     @RequestMapping(value = "/home", method = { RequestMethod.GET })
     public String home(Locale locale, Model model) {
@@ -35,7 +41,7 @@ public class loginController {
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
         String formattedDate = dateFormat.format(date);
         model.addAttribute("serverTime", formattedDate);
-        model.addAttribute("testStr", "測試登入");
+
         return "home/login";
     }
 
@@ -43,9 +49,14 @@ public class loginController {
     public String doLogin(Model model, @ModelAttribute("userName") String userName, @ModelAttribute("password") String password, HttpServletRequest req) {
         System.out.println("userName = " + userName);
         System.out.println("password = " + password);
+        Employee data = new Employee();
+        try {
+        	 data = employeeRepository.findByNo(userName);
+        }catch(Exception e){
+        	System.out.println(e);
+        	System.out.println(data);
+        }
 
-        Employee data = employeeService.findByNo(userName);
-        System.out.println(data);
         // Get the web application context, all spring beans are managed in this context.
         WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(req.getServletContext());
         //        UserAccountBean userAccountBean = (UserAccountBean)context.getBean("userAccountBean");

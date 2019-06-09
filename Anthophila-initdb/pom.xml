@@ -30,7 +30,7 @@
                 <db.delimiterType>row</db.delimiterType>
             </properties>
         </profile>
-        <profile>
+      <!--   <profile>
             <id>oracle</id>
             <properties>
                 <db.encoding>UTF8</db.encoding>
@@ -45,6 +45,7 @@
                 <db.delimiterType>row</db.delimiterType>
             </properties>
         </profile>
+         -->
     </profiles>
 
     <build>
