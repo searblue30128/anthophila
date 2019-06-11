@@ -16,7 +16,7 @@
 	  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
 	  <input type="submit" value="login" class="fadeIn fourth" />
     </form>
-    
+
     <!-- Remind Passowrd -->
     <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
@@ -32,7 +32,7 @@
 
 <script type="text/javascript">
 $('#formFooter a').click(function() {
-	  alert('Ahui like tit');
+	  alert('');
 });
 </script>
 
@@ -62,7 +62,7 @@ h2 {
   font-weight: 600;
   text-transform: uppercase;
   display:inline-block;
-  margin: 40px 8px 10px 8px; 
+  margin: 40px 8px 10px 8px;
   color: #cccccc;
 }
 
@@ -73,7 +73,7 @@ h2 {
 .wrapper {
   display: flex;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   min-height: 100%;
@@ -323,7 +323,7 @@ input[type=password]:placeholder {
 
 *:focus {
     outline: none;
-} 
+}
 
 #icon {
   width:60%;

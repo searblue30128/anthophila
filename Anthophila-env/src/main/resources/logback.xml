@@ -15,7 +15,7 @@
 
     <appender name="APPLICATION_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
       <!--   <file>${app.log.dir:-log}/projectName-application.log</file> -->
-        <file>C:\\Users\\FLQVKV1\\Desktop\\USER\\Test01\\Ahui\\tourreserve\\Anthophila-application.log</file>
+        <file>D:\\Anthophila-application.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${app.log.dir:-log}/projectName-application-%d{yyyyMMdd}.log</fileNamePattern>
             <maxHistory>7</maxHistory>
