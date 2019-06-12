@@ -34,10 +34,10 @@
 
 <body>
 		<!-- 網頁主要內容部分 START -->
-		   <div class="container">
+		   <div class="container-fluid">
 		       <tiles:insertAttribute name="body" />
 		   		<!-- 底部 floor -->
-		       <p style="text-align: center; background: #e5eCf9;">Copyright &copy; 2019 CompanyName</p>
+		       <p style="text-align: center; background: #e5eCf9;">Copyright &copy; 2019 <b>Be株式会社</b></p>
 		   </div>
 
 		<!-- 網頁主要內容部分 END -->
