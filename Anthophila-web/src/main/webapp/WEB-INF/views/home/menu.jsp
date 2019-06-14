@@ -19,9 +19,11 @@
 			<div class="list-group ">
 				<a href="#" data-toggle="collapse" data-target="#submenu-1" class="list-group-item list-group-item-action active">個人管理</a>
 				<ul id="submenu-1" class="collapse">
-					<a href="#"><i class="fa fa-angle-double-right"></i>勤務表</a></br>
-					<a href="#"><i class="fa fa-angle-double-right"></i>交通費</a></br>
-					<a href="#"><i class="fa fa-angle-double-right"></i>アカウント</a></br>
+					<a href="#"><i class="fa fa-angle-double-right"></i>基本情報</a></br>
+					<a href="#"><i class="fa fa-angle-double-right"></i>交通費管理</a></br>
+					<a href="#"><i class="fa fa-angle-double-right"></i>勤務管理</a></br>
+					<a href="#"><i class="fa fa-angle-double-right"></i>請假管理</a></br>
+					<a href="#"><i class="fa fa-angle-double-right"></i>履歴管理</a></br>
 				</ul>
 				<a href="#" data-toggle="collapse" data-target="#submenu-2" class="list-group-item list-group-item-action">人事管理</a>
 				<ul id="submenu-2" class="collapse">
