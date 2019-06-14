@@ -31,8 +31,10 @@
 
 
 <script type="text/javascript">
-$('#formFooter a').click(function() {
-	  alert('');
+$(function() {
+	console.log($('.panel-group'));
+	$('.col-md-3').hide(10);
+// 	$('.col-md-3').css("display","none");
 });
 </script>
 

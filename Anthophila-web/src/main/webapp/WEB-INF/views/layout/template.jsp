@@ -10,15 +10,17 @@
 	</script>
 
 	<!-- jQuery文件。要在 bootstrap.min.js 之前引入 -->
-	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
 	<!-- popper.min.js 用於彈跳視窗、提示、下拉選單 -->
 	<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
 	<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	
 	<!-- 要導入的資源檔案 START 以下記入  -->
 	<!-- 新 Bootstrap4 核心 CSS 文件 -->
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/app/css/bootstrap.css">
 	<!-- 要導入的資源檔案 END  -->
@@ -33,13 +35,22 @@
 </head>
 
 <body>
-		<!-- 網頁主要內容部分 START -->
-		   <div class="container-fluid">
-		       <tiles:insertAttribute name="body" />
-		   		<!-- 底部 floor -->
-		       <p style="text-align: center; background: #e5eCf9;">Copyright &copy; 2019 <b>Be株式会社</b></p>
-		   </div>
+<!-- 網頁主要內容部分 START -->
+   <div class="container-fluid">
+   	   <div class="row justify-content-end">
+			<div class="col-md-3">
+				<tiles:insertAttribute name="sidebar" />
+			</div>
+			<div class="col-md-9">
+				<tiles:insertAttribute name="body" />
+			</div>
+		</div>
+   
+       
+   		<!-- 底部 floor -->
+       <p style="text-align: center; background: #e5eCf9;">Copyright &copy; 2019 <b>Be株式会社</b></p>
+   </div>
 
-		<!-- 網頁主要內容部分 END -->
+<!-- 網頁主要內容部分 END -->
 </body>
 </html>
