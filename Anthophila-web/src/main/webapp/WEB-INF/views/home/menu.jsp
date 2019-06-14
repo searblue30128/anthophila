@@ -27,13 +27,11 @@
 			<div class="list-group ">
 				<a href="#" data-toggle="collapse" data-target="#submenu-1" class="list-group-item list-group-item-action active">個人管理</a>
 				<ul id="submenu-1" class="collapse">
-					<form:form action="personal/personal_02" modelAttribute="helloForm">
 					<a href="personal_01"><i class="fa fa-angle-double-right"></i>基本情報</a></br>
 					<a href="personal_02"><i class="fa fa-angle-double-right"></i>交通費管理</a></br>
 					<a href="personal_03"><i class="fa fa-angle-double-right"></i>勤務管理</a></br>
 					<a href="personal_04"><i class="fa fa-angle-double-right"></i>請假管理</a></br>
 					<a href="personal_05"><i class="fa fa-angle-double-right"></i>履歴管理</a></br>
-					</form:form>
 				</ul>
 				<a href="#" data-toggle="collapse" data-target="#submenu-2" class="list-group-item list-group-item-action">人事管理</a>
 				<ul id="submenu-2" class="collapse">

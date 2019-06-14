@@ -60,7 +60,7 @@
 
 	</div>
 	<div class="col-md-9">
-		<a href="#"><i class="fa fa-angle-double-right"></i>交通費管理</a></br>
+		<a href="#"><i class="fa fa-angle-double-right"></i>基本情報</a></br>
 	</div>
 </div>
 
