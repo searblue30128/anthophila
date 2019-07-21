@@ -128,7 +128,8 @@
 			<tr>
 				<td><input type="text" name="parentName${num}"
 					value="測試${num}號" class="form-control"></td>
-				<td>複製人</td>
+				<td><input type="text" name="parentRelationship${num}"
+					value="複製人${num}號" class="form-control"></td>
 				<td><input type="text" id="parentDate${num}"
 					class="form-control" placeholder="Choose"></td>
 				<td colspan="2"><input type="text" name="parentAddress${num}"
