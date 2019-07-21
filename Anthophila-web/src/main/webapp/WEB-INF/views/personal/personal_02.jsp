@@ -78,7 +78,7 @@
 
 		</div>
 		<div class="panel-footer">
-				<a class="btn btn-success" href="#">
+				<a class="btn btn-success" href="personal/newtransportcost">
 				<i	class="icon-shopping-cart icon-white"></i>
 				新增交通費 </a>
 			<ul class="pagination hidden-xs pull-right">

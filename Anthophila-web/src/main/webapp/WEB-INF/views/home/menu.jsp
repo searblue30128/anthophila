@@ -4,82 +4,42 @@
 
 <div class="card">
 	<div class="card-body">
-		<div class="row">
-			<div class="col-md-2 border-right">
-				<h4>使用者</h4>
+		<div class="alert-group">
+			<div class="alert alert-info">
+				<strong>公司廣播通知!</strong> 2020年 公司舉辦xxx 活動,欲參加者請於以下連結進入報名 .
 			</div>
-			<div class="col-md-6">
-				<button type="button" class="btn btn-sm btn-primary">Add User</button>
+			<div class="alert alert-success alert-dismissable">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-hidden="true">×</button>
+				<strong>新訊息!</strong> 最新交通費審合通過,請至個人情報內確認
 			</div>
-
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<table class="table table-hover ">
-					<thead class="bg-light ">
-						<tr>
-							<th>
-								<div class="form-check-inline">
-									<label class="form-check-label"> <input
-										type="checkbox" class="form-check-input" value="">
-									</label>
-								</div>
-							</th>
-							<th>Username</th>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Role</th>
-							<th>Posts</th>
-							<th>Edit</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<div class="form-check-inline">
-									<label class="form-check-label"> <input
-										type="checkbox" class="form-check-input" value="">
-									</label>
-								</div>
-							</td>
-							<td><a href="#"><small>Johnyahua</small></a></td>
-							<td><small>Doe</small></td>
-							<td><small>john@example.com</small></td>
-							<td><small>Admin</small></td>
-							<td><a href="#"><small>5</small></a></td>
-							<td><a href="#"><i class="fa fa-pencil-square-o"></i></a>
-								<a href="#"><i class="fa fa-eye"></i></a> <a href="#"><i
-									class="fa fa-trash"></i></a></td>
-						</tr>
-						<tr>
-							<td>
-								<div class="form-check-inline">
-									<label class="form-check-label"> <input
-										type="checkbox" class="form-check-input" value="">
-									</label>
-								</div>
-							</td>
-							<td><a href="#"><small>Johnyahua</small></a></td>
-							<td><small>Doe</small></td>
-							<td><small>john@example.com</small></td>
-							<td><small>Admin</small></td>
-							<td><a href="#"><small>5</small></a></td>
-							<td><a href="#"><i class="fa fa-pencil-square-o"></i></a>
-								<a href="#"><i class="fa fa-eye"></i></a> <a href="#"><i
-									class="fa fa-trash"></i></a></td>
-						</tr>
-
-
-					</tbody>
-				</table>
+			<div class="alert alert-success alert-dismissable">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-hidden="true">×</button>
+				<strong>新訊息!</strong> 最新月勤務表審合通過,請至個人情報內確認
+			</div>
+			<!-- 			<div class="alert alert-warning alert-dismissable"> -->
+			<!-- 				<button type="button" class="close" data-dismiss="alert" -->
+			<!-- 					aria-hidden="true">×</button> -->
+			<!-- 				<strong>Warning!</strong> Better check yourself, you're not looking -->
+			<!-- 				too good. -->
+			<!-- 			</div> -->
+			<div class="alert alert-danger alert-dismissable">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-hidden="true">×</button>
+				<strong>即將截止!</strong> 七月份 勤務表尚未提交 於截止日期尚有3天.
+			</div>
+			<div class="alert alert-danger alert-dismissable">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-hidden="true">×</button>
+				<strong>即將截止!</strong> 七月份 交通費尚未提交 於截止日期尚有1天.
 			</div>
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
-$(function() {
-	console.log($('.panel-group'));
-	$('.col-md-3').show(10);
-// 	$('.col-md-3').css("display","none");
-});
+	$(function() {
+		console.log($('.panel-group'));
+		$('.col-md-3').show(10);
+	});
 </script>

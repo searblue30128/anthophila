@@ -15,40 +15,47 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class personalController {
 
-    private static final Logger logger = LoggerFactory.getLogger(personalController.class);
+	private static final Logger logger = LoggerFactory.getLogger(personalController.class);
 
-    //基本情報
-    @RequestMapping(value = "/personal_01", method = { RequestMethod.GET })
-    public String personal_01(Locale locale, Model model) {
-        //基本情報
-        return "personal/personal_01";
-    }
+	//基本情報
+	@RequestMapping(value = "/personal_01", method = { RequestMethod.GET })
+	public String personal_01(Locale locale, Model model) {
+		//基本情報
+		return "personal/personal_01";
+	}
 
-    //交通費管理
-    @RequestMapping(value = "/personal_02", method = { RequestMethod.GET })
-    public String personal_02(Locale locale, Model model) {
-        //交通費管理
-        return "personal/personal_02";
-    }
+	//交通費管理
+	@RequestMapping(value = "/personal_02", method = { RequestMethod.GET })
+	public String personal_02(Locale locale, Model model) {
+		//交通費管理
+		return "personal/personal_02";
+	}
 
-    //勤務管理
-    @RequestMapping(value = "/personal_03", method = { RequestMethod.GET })
-    public String personal_03(Locale locale, Model model) {
-        //勤務管理
-        return "personal/personal_03";
-    }
+	//新增交通費
+	@RequestMapping(value = "personal/newtransportcost", method = { RequestMethod.GET })
+	public String personal_newtransportcost(Locale locale, Model model) {
+		//新增交通費
+		return "personal/personal_02_1";
+	}
 
-    //請假管理
-    @RequestMapping(value = "/personal_04", method = { RequestMethod.GET })
-    public String personal_04(Locale locale, Model model) {
-        //請假管理
-        return "personal/personal_04";
-    }
+	//勤務管理
+	@RequestMapping(value = "/personal_03", method = { RequestMethod.GET })
+	public String personal_03(Locale locale, Model model) {
+		//勤務管理
+		return "personal/personal_03";
+	}
 
-    //履歴管理
-    @RequestMapping(value = "/personal_05", method = { RequestMethod.GET })
-    public String personal_05(Locale locale, Model model) {
-        //履歴管理
-        return "personal/personal_05";
-    }
+	//請假管理
+	@RequestMapping(value = "/personal_04", method = { RequestMethod.GET })
+	public String personal_04(Locale locale, Model model) {
+		//請假管理
+		return "personal/personal_04";
+	}
+
+	//履歴管理
+	@RequestMapping(value = "/personal_05", method = { RequestMethod.GET })
+	public String personal_05(Locale locale, Model model) {
+		//履歴管理
+		return "personal/personal_05";
+	}
 }
