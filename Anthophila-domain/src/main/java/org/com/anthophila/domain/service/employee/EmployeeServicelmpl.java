@@ -11,12 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class EmployeeServicelmpl implements EmployeeService {
 
-    @Inject
-    EmployeeRepository employeeRepository;
+	@Inject
+	EmployeeRepository employeeRepository;
 
 	@Override
 	public Employee findByNo(String employeeNo) {
-		return employeeRepository.findByNo(employeeNo).orElse(null);
+		return employeeRepository.findByNo(employeeNo);
 	}
 
 }

@@ -8,9 +8,9 @@
 			<img id="icon" src="${pageContext.request.contextPath}/resources/app/png/logo.png" />
 	    </a>
     </div>
-
+	<a>${errMessage}</a>
     <!-- Login Form -->
-    <form action="index" method = "post">
+    <form action="accountLogin" method = "post">
       <input type="text" id="userName" class="fadeIn second" name="userName" placeholder="login">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
 	  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
