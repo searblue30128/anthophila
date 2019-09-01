@@ -25,8 +25,8 @@ CREATE TABLE MESSAGE(
   MESSAGE_CONTENT VARCHAR (100) NOT NULL ,  /*訊息內容*/
   MESSAGE_SEND_FLG VARCHAR (1) NOT NULL,  /*1:配信完 0:未配信 */
   MESSAGE_LEVEL VARCHAR (1) NOT NULL ,  /*0-4 level 0:一般推播 公司活動資訊等  1:月次訊息 繳交交通費與時數表 2:重要訊息 申請到期/時限將至等  3:未定 4:未定*/
-  MESSAGE_CREATE_TIME DATE NOT NULL ,  /*訊息創建時間*/
-  MESSAGE_SEND_TIME DATE ,  /*配信時間*/
+  MESSAGE_CREATE_TIME timestamp NOT NULL ,  /*訊息創建時間*/
+  MESSAGE_SEND_TIME timestamp ,  /*配信時間*/
   MESSAGE_CREATE_NO VARCHAR (8) NOT NULL ,  /*創建訊息者*/
   CONSTRAINT PK_MESSAGE PRIMARY KEY (MESSAGE_NO, MESSAGE_CONTENT)
 );

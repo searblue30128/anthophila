@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.com.anthophila.domain.repository.account.AccountRepository">
+
+  <resultMap id="AccountResultMap" type="Account">
+    <id property="accountNo" column="account_no" />
+    <result property="accountPass" column="account_pass" />
+    <result property="accountLoginTime" column="account_login_time" />
+    <result property="accountTryNo" column="account_try_no" />
+    <result property="accountPur" column="account_pur" />
+  </resultMap>
+
+  <select id="findByNo" parameterType="string" resultMap="AccountResultMap">
+    SELECT
+	*
+    FROM
+    account
+    WHERE
+    account_no = #{accountNo}
+  </select>
+</mapper>

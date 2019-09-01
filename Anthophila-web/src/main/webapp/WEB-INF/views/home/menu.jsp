@@ -8,15 +8,15 @@
 			<div class="alert alert-info">
 				<strong>公司廣播通知!</strong> 2020年 公司舉辦xxx 活動,欲參加者請於以下連結進入報名 .
 			</div>
+<!-- 			<div class="alert alert-success alert-dismissable"> -->
+<!-- 				<button type="button" class="close" data-dismiss="alert" -->
+<!-- 					aria-hidden="true">×</button> -->
+<!-- 				<strong>新訊息!</strong> 最新交通費審合通過,請至個人情報內確認 -->
+<!-- 			</div> -->
 			<div class="alert alert-success alert-dismissable">
 				<button type="button" class="close" data-dismiss="alert"
 					aria-hidden="true">×</button>
-				<strong>新訊息!</strong> 最新交通費審合通過,請至個人情報內確認
-			</div>
-			<div class="alert alert-success alert-dismissable">
-				<button type="button" class="close" data-dismiss="alert"
-					aria-hidden="true">×</button>
-				<strong>新訊息!</strong> 最新月勤務表審合通過,請至個人情報內確認
+				<strong>新訊息!</strong> ${ messageContent }
 			</div>
 			<!-- 			<div class="alert alert-warning alert-dismissable"> -->
 			<!-- 				<button type="button" class="close" data-dismiss="alert" -->
