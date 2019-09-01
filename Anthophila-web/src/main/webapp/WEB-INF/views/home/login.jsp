@@ -4,11 +4,11 @@
 
     <!-- Icon -->
     <div class="fadeIn first">
-      	<a href="${pageContext.request.contextPath}/home">
+      	<a href="${pageContext.request.contextPath}">
 			<img id="icon" src="${pageContext.request.contextPath}/resources/app/png/logo.png" />
 	    </a>
     </div>
-	<a>${errMessage}</a>
+	<div style="color:red;width:30%;background-color:yellow;"><b>${errMessage}</b></div>
     <!-- Login Form -->
     <form action="accountLogin" method = "post">
       <input type="text" id="userName" class="fadeIn second" name="userName" placeholder="login">
