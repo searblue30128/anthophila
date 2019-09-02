@@ -14,12 +14,15 @@
     <result property="messageCreateNo" column="message_create_no" />
   </resultMap>
 
-  <select id="findByNo" parameterType="string" resultMap="MessageResultMap">
+  <select id="findByNo" resultType="Message"  resultMap="MessageResultMap">
     SELECT
 	*
     FROM
     message
     WHERE
     message_no = #{messageNo}
+    AND
+    message_send_flg = '0'
+    ORDER BY message_level,message_create_time
   </select>
 </mapper>

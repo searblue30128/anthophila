@@ -1,6 +1,8 @@
 package org.com.anthophila.app.home;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +46,7 @@ public class loginController {
 			@ModelAttribute("password") String userPassword, HttpServletRequest req) throws SQLException {
 		String page = "home/login";
 		Account account = new Account();
-		Message message = new Message();
+		List<Message> message = new ArrayList<Message>();
 		if (!userName.isEmpty()) {
 			try {
 				account = accountRepository.findByNo(userName);
@@ -55,10 +57,9 @@ public class loginController {
 				String password = account.getAccountPass();
 				if (password.equals(userPassword)) {
 					message = messageRepository.findByNo(userName);
-
 					page = "home/menu";
 					model.addAttribute("acount", userName);
-					model.addAttribute("messageContent", message.getMessageContent());
+					model.addAttribute("messageContent", createMessage(message));
 
 				} else {
 					model.addAttribute("errMessage", "密碼錯誤");
@@ -70,4 +71,43 @@ public class loginController {
 		}
 		return page;
 	}
+	//
+	//	@RequestMapping("/accountLogin")
+	//	public String doLogin(Model model, @ModelAttribute("userName") String userName,
+	//			@ModelAttribute("password") String userPassword, HttpServletRequest req) throws SQLException {
+	//
+	//
+	//	}
+
+	private static String createMessage(List<Message> messageList) {
+
+		StringBuffer level_0 = new StringBuffer();
+
+		messageList.forEach((temp) -> {
+			level_0.append(messageStr(temp.getMessageLevel(), temp.getMessageContent()));
+		});
+		return level_0.toString();
+	}
+
+	private static String messageStr(String num, String content) {
+		String message = null;
+		if (num.equals("0")) {
+			message = "<div class=\"alert alert-info\">\r\n" +
+					" 	<button type=\"button\" class=\"close\" "
+					+ "data-dismiss=\"alert\" aria-hidden=\"true\">×</button>"
+					+ content + "</div>";
+		} else if (num.equals("1")) {
+			message = "<div class=\"alert alert-success alert-dismissable\">\r\n" +
+					" 	<button type=\"button\" class=\"close\" data-dismiss=\"alert\""
+					+ " aria-hidden=\"true\">×</button>"
+					+ content + "</div>";
+		} else if (num.equals("2")) {
+			message = "<div class=\"alert alert-danger alert-dismissable\">\r\n" +
+					" 	<button type=\"button\" class=\"close\" data-dismiss=\"alert\" "
+					+ "aria-hidden=\"true\">×</button>"
+					+ content + "</div>";
+		}
+		return message;
+	}
+
 }

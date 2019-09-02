@@ -1,5 +1,7 @@
 package org.com.anthophila.domain.service.message;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.com.anthophila.domain.model.Message;
@@ -15,7 +17,7 @@ public class MessageServicelmpl implements MessageService {
 	MessageRepository messageRepository;
 
 	@Override
-	public Message findByNo(String messageNo) {
+	public List<Message> findByNo(String messageNo) {
 		return messageRepository.findByNo(messageNo);
 	}
 
