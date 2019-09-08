@@ -163,6 +163,18 @@
             <artifactId>tomcat-embed-el</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- == Begin QRCode Generator == -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		<!-- == End QRCode Generator == -->
         <!--  REMOVE THIS LINE IF YOU USE Spring Test DBUnit
         <dependency>
             <groupId>org.dbunit</groupId>
@@ -178,14 +190,12 @@
         <!-- == End Unit Test == -->
 
         <!-- == Begin Coding Support == -->
-        <!--
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>provided</scope>
+            <scope>complie</scope>
         </dependency>
-        -->
         <!-- == End Coding Support == -->
-
+		
     </dependencies>
 </project>
