@@ -5,24 +5,34 @@
 <mapper namespace="org.com.anthophila.domain.repository.message.MessageRepository">
 
   <resultMap id="MessageResultMap" type="Message">
-    <id property="messageNo" column="message_no" />
+    <id property="accountNo" column="account_no" />
+    <result property="messageNo" column="message_no" />
     <result property="messageContent" column="message_content" />
     <result property="messageSendFlg" column="message_send_flg" />
     <result property="messageLevel" column="message_level" />
     <result property="messageCreateTime" column="message_create_time" />
     <result property="messageSendTime" column="message_send_time" />
-    <result property="messageCreateNo" column="message_create_no" />
+    <result property="messageCreateNo" column="message_create_account" />
   </resultMap>
 
   <select id="findByNo" resultType="Message"  resultMap="MessageResultMap">
-    SELECT
+    select
 	*
-    FROM
-    message
-    WHERE
-    message_no = #{messageNo}
-    AND
+    from
+    messageinfo
+    where
+    account_no = #{accountNo}
+    and
     message_send_flg = '0'
-    ORDER BY message_level,message_create_time
+    order by message_level,message_no,message_create_time
   </select>
+
+  <update id="updateMessage" parameterType="Message">
+  update messageinfo
+    <set>
+     	 message_send_flg = 1
+    </set>
+     where account_no = #{arg0}
+     and message_content = #{arg1}
+  </update>
 </mapper>

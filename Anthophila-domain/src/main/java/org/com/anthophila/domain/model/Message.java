@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Message implements Serializable {
 
+	private String accountNo;
+
 	private String messageNo;
 
 	private String messageContent;
@@ -23,9 +25,5 @@ public class Message implements Serializable {
 	private Date messageSendTime;
 
 	private String messageCreateNo;
-
-	public Message(String messageNo) {
-		this.messageNo = messageNo;
-	}
 
 }

@@ -17,8 +17,13 @@ public class MessageServicelmpl implements MessageService {
 	MessageRepository messageRepository;
 
 	@Override
-	public List<Message> findByNo(String messageNo) {
-		return messageRepository.findByNo(messageNo);
+	public List<Message> findByNo(String accountNo) {
+		return messageRepository.findByNo(accountNo);
+	}
+
+	@Override
+	public void updateMessage(String account, String messageContent) {
+		messageRepository.updateMessage(account, messageContent);
 	}
 
 }

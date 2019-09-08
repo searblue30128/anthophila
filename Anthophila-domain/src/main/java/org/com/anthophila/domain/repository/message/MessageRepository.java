@@ -6,8 +6,8 @@ import org.com.anthophila.domain.model.Message;
 
 public interface MessageRepository {
 
-	List<Message> findByNo(String messageNo);
+	List<Message> findByNo(String accountNo);
 
-	List<Message> find();
+	void updateMessage(String account, String messageContent);
 
 }
