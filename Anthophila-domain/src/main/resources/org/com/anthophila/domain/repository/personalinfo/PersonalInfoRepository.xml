@@ -5,37 +5,37 @@
 <mapper namespace="org.com.anthophila.domain.repository.personalinfo.PersonalInfoRepository">
 
   <resultMap id="PersonalInfoResultMap" type="PersonalInfo">
-	<id property="accountNo" column="ACCOUNT_NO" />
-	<result property="jobTitle" column="JOBTITLE" />
-	<result property="birthday" column="BIRTHDAY" />
-	<result property="gendor" column="GENDOR" />
-	<result property="name" column="NAME" />
-	<result property="phoneNo" column="PHONE_NO" />
-	<result property="email" column="EMAIL" />
-	<result property="mate" column="MATE" />
-	<result property="liveAlone" column="LIVE_ALONE" />
-	<result property="nearStation" column="NEAR_STATION" />
-	<result property="address" column="ADDRESS" />
-	<result property="residenceCardNo" column="RESIDENCE_CARD_NO" />
-	<result property="residenceDateStart" column="RESIDENCE_DATE_START" />
-	<result property="residenceDateEnd" column="RESIDENCE_DATE_END" />
-	<result property="bankAccountName" column="BANK_ACCOUNT_NAME" />
-	<result property="bankAccountBranch" column="BANK_ACCOUNT_BRANCH" />
-	<result property="bankAccountNo" column="BANK_ACCOUNT_NO" />
-	<result property="passportNo" column="PASSPORT_NO" />
-	<result property="hiredInsuranceInsuredNo" column="HIRED_INSURANCE_INSURED_NO" />
-	<result property="dependentRelativeName1" column="DEPENDENT_RELATIVE_NAME_1" />
-	<result property="dependentRelativeRelation1" column="DEPENDENT_RELATIVE_RELATION_1" />
-	<result property="dependentRelativeBirthday1" column="DEPENDENT_RELATIVE_BIRTHDAY_1" />
-	<result property="dependentRelativeAddress1" column="DEPENDENT_RELATIVE_ADDRESS_1" />
-	<result property="dependentRelativeName2" column="DEPENDENT_RELATIVE_NAME_2" />
-	<result property="dependentRelativeRelation2" column="DEPENDENT_RELATIVE_RELATION_2" />
-	<result property="dependentRelativeBirthday2" column="DEPENDENT_RELATIVE_BIRTHDAY_2" />
-	<result property="dependentRelativeAddress2" column="DEPENDENT_RELATIVE_ADDRESS_2" />
-	<result property="dependentRelativeName3" column="DEPENDENT_RELATIVE_NAME_3" />
-	<result property="dependentRelativeRelation3" column="DEPENDENT_RELATIVE_RELATION_3" />
-	<result property="dependentRelativeBirthday3" column="DEPENDENT_RELATIVE_BIRTHDAY_3" />
-	<result property="dependentRelativeAddress3" column="DEPENDENT_RELATIVE_ADDRESS_3" />
+	<id property="accountNo" column="account_no" />
+	<result property="jobTitle" column="jobtitle" />
+	<result property="birthday" column="birthday" />
+	<result property="gendor" column="gendor" />
+	<result property="name" column="name" />
+	<result property="phoneNo" column="phone_no" />
+	<result property="email" column="email" />
+	<result property="mate" column="mate" />
+	<result property="liveAlone" column="live_alone" />
+	<result property="nearStation" column="near_station" />
+	<result property="address" column="address" />
+	<result property="residenceCardNo" column="residence_card_no" />
+	<result property="residenceDateStart" column="residence_date_start" />
+	<result property="residenceDateEnd" column="residence_date_end" />
+	<result property="bankAccountName" column="bank_account_name" />
+	<result property="bankAccountBranch" column="bank_account_branch" />
+	<result property="bankAccountNo" column="bank_account_no" />
+	<result property="passportNo" column="passport_no" />
+	<result property="hiredInsuranceInsuredNo" column="hired_insurance_insured_no" />
+	<result property="dependentRelativeName1" column="dependent_relative_name_1" />
+	<result property="dependentRelativeRelation1" column="dependent_relative_relation_1" />
+	<result property="dependentRelativeBirthday1" column="dependent_relative_birthday_1" />
+	<result property="dependentRelativeAddress1" column="dependent_relative_address_1" />
+	<result property="dependentRelativeName2" column="dependent_relative_name_2" />
+	<result property="dependentRelativeRelation2" column="dependent_relative_relation_2" />
+	<result property="dependentRelativeBirthday2" column="dependent_relative_birthday_2" />
+	<result property="dependentRelativeAddress2" column="dependent_relative_address_2" />
+	<result property="dependentRelativeName3" column="dependent_relative_name_3" />
+	<result property="dependentRelativeRelation3" column="dependent_relative_relation_3" />
+	<result property="dependentRelativeBirthday3" column="dependent_relative_birthday_3" />
+	<result property="dependentRelativeAddress3" column="dependent_relative_address_3" />
   </resultMap>
 
   <select id="findByNo" parameterType="string" resultMap="PersonalInfoResultMap">
@@ -44,6 +44,6 @@
     FROM
     personsal_info
     WHERE
-    ACCOUNT_NO = #{accountNo}
+    account_no = #{accountNo}
   </select>
 </mapper>

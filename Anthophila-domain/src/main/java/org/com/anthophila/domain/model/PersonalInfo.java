@@ -10,8 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PersonalInfo implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     private String accountNo;
 
     private String jobTitle;

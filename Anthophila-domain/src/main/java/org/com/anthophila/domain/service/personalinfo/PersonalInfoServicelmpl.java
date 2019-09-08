@@ -1,5 +1,7 @@
 package org.com.anthophila.domain.service.personalinfo;
 
+import java.util.Optional;
+
 import javax.inject.Inject;
 
 import org.com.anthophila.domain.model.PersonalInfo;
@@ -15,7 +17,7 @@ public class PersonalInfoServicelmpl implements PersonalInfoService {
     PersonalInfoRepository personalInfoRepository;
 
     @Override
-    public PersonalInfo findByNo(String accountNo) {
+    public Optional<PersonalInfo> findByNo(String accountNo) {
         return personalInfoRepository.findByNo(accountNo);
     }
 }

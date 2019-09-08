@@ -6,7 +6,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
-<table class="table table-condens	ed table-hover">
+<table class="table table-condensed table-hover">
 	<thead>
 		<tr>
 			<th style="width: 10%">基本情報</th>
