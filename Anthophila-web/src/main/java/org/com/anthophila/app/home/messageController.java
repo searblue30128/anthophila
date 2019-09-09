@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import org.com.anthophila.domain.model.Message;
 import org.com.anthophila.domain.repository.message.MessageRepository;
@@ -16,8 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Controller
 public class messageController {
@@ -39,7 +36,7 @@ public class messageController {
 	public String deleteMessage(Model model, @ModelAttribute("messageInfo") String messageContent) throws SQLException {
 		String page = "home/menu";
 		List<Message> message = new ArrayList<Message>();
-		String accountNo = getSessionAccountNo();
+		String accountNo = loginController.getSessionAccountNo();
 		if (StringUtils.hasText(messageContent)) {
 			System.out.println(messageContent);
 			messageRepository.updateMessage(accountNo, messageContent);
@@ -68,11 +65,5 @@ public class messageController {
 		model.addAttribute("warningMessage", warningMessageList);
 
 		return page;
-	}
-
-	public static String getSessionAccountNo() {
-		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-		HttpSession session = attr.getRequest().getSession();
-		return session.getAttribute("acountNo").toString();
 	}
 }
