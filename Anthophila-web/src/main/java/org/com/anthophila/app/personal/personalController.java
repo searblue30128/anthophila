@@ -1,13 +1,14 @@
 package org.com.anthophila.app.personal;
 
 import java.util.Locale;
+import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.com.anthophila.app.home.loginController;
 import org.com.anthophila.domain.model.PersonalInfo;
 import org.com.anthophila.domain.repository.personalinfo.PersonalInfoRepository;
-import org.com.anthophila.domain.service.personalinfo.PersonalInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,16 @@ public class personalController {
     public String personal_01(Locale locale, Model model) {
         String accountNo = loginController.getSessionAccountNo();
         PersonalInfo person = personalInfoRepository.findByNo(accountNo).get();
-        System.out.println(person.getAccountNo());
+        model.addAttribute("personalInfo", person);
+        return "personal/personal_01";
+    }
+
+    //基本情報 ajax 儲存
+    @RequestMapping(value = "/personal_01_ajax", method = { RequestMethod.POST })
+    public String personal_01_ajax(Locale locale, Model model, HttpServletRequest request) {
+        String accountNo = loginController.getSessionAccountNo();
+        Map modelMap = model.asMap();
+        System.out.println(accountNo);
         return "personal/personal_01";
     }
 
