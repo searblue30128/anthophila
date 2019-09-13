@@ -10,6 +10,8 @@
 <head>
    <sec:csrfMetaTags />   <!-- (1) https://terasolunaorg.github.io/guideline/5.0.x/en/Security/CSRF.html-->
 </head>
+<form id="formID">
+	<input type="hidden" name="accountNo" value="${personalInfo.accountNo}">
 <table class="table table-condensed table-hover">
 	<thead>
 		<tr>
@@ -22,7 +24,6 @@
 		</tr>
 	</thead>
 	<tbody>
-		<form>
 			<tr>
 				<th>職稱</th>
 				<td><input type="text" name="jobTitle" value="${personalInfo.jobTitle}"
@@ -109,7 +110,7 @@
 			</tr>
 			<tr>
 				<th>口座番號</th>
-				<td colspan="4"><input type="text" name="accountNo"
+				<td colspan="4"><input type="text" name="bankAccountNo"
 					value="${personalInfo.bankAccountNo}" class="form-control"></td>
 			</tr>
 			<tr>
@@ -170,8 +171,8 @@
 		<td></td>
 		<td></td>
 	</tr>
-	</form>
 </table>
+</form>
 
 <script type="text/javascript">
 
@@ -243,17 +244,57 @@ $(document).ajaxSend(function(e, xhr, options) {
 	}
 	
 	$("#saveBtn").click(function(){
+		  if(confirm("確定要送出") == false){
+			  return;
+		  }
 		  $("input").attr('disabled', true);
 		  $("#saveBtn").addClass("disabled");
 		  $("#editBtn").removeClass("disabled");
+		  
+		  var personalInfo = {
+              accountNo : $("input[name*='accountNo']").val(),
+  			  jobTitle : $("input[name*='jobTitle']").val(),
+			  birthday : $("#datepicker").val(),
+			  gendor : $("input[name*='gender']:checked").val(),
+			  name : $("input[name*='nameStr']").val(),
+			  phoneNo : $("input[name*='phoneNo']").val(),
+			  email : $("input[name*='emailStr']").val(),
+			  mate : $("input[name*='mate']:checked").val(),
+			  liveAlone : $("input[name*='single']:checked").val(),
+			  nearStation : $("input[name*='closedStation']").val(),
+			  address : $("input[name*='address']").val(),
+			  residenceCardNo : $("input[name*='residentNo']").val(),
+			  residenceDateStart : $("#residentStart").val(),
+			  residenceDateEnd : $("#residentEnd").val(),
+			  bankAccountName : $("input[name*='nameOwner']").val(),
+			  bankAccountBranch : $("input[name*='bankStr']").val(),
+			  bankAccountNo : $("input[name*='bankAccountNo']").val(),
+			  passportNo : $("input[name*='passportNo']").val(),
+			  hiredInsuranceInsuredNo : $("input[name*='InsurantNo']").val(),
+			  dependentRelativeName1 : $("input[name*='parentName1']").val(),
+			  dependentRelativeRelation1 : $("input[name*='parentRelationship1']").val(),
+			  dependentRelativeBirthday1 : $("#parentDate1").val(),
+			  dependentRelativeAddress1 : $("input[name*='parentAddress1']").val(),
+			  dependentRelativeName2 : $("input[name*='parentName2']").val(),
+			  dependentRelativeRelation2 : $("input[name*='parentRelationship2']").val(),
+			  dependentRelativeBirthday2 : $("#parentDate2").val(),
+			  dependentRelativeAddress2 : $("input[name*='parentAddress2']").val(),
+			  dependentRelativeName3 : $("input[name*='parentName3']").val(),
+			  dependentRelativeRelation3 : $("input[name*='parentRelationship2']").val(),
+			  dependentRelativeBirthday3 : $("#parentDate3").val(),
+			  dependentRelativeAddress3 : $("input[name*='parentAddress3']").val()
+		  }
+	  	  
+		  
 		  $.ajax({
 	            type: "post",
 	            url: "personal_01_ajax",
-	            data: $('form').serialize(),
+	            cache: false,
+                dataType: 'json',
+	            data: JSON.stringify(personalInfo),
 	            timeout: 15000,
 	            success: function(data) {
 	                  console.log("ajax success");
-	                  console.log($('form').serialize());
 	            },
 	            complete: function() {
 	            	console.log("ajax complete");

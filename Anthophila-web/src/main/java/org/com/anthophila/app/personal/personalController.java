@@ -1,7 +1,8 @@
 package org.com.anthophila.app.personal;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.alibaba.fastjson.JSON;
 
 /**
  * Handles requests for the application home page.
@@ -31,7 +34,7 @@ public class personalController {
     @RequestMapping(value = "/personal_01", method = { RequestMethod.GET })
     public String personal_01(Locale locale, Model model) {
         String accountNo = loginController.getSessionAccountNo();
-        PersonalInfo person = personalInfoRepository.findByNo(accountNo).get();
+        PersonalInfo person = personalInfoRepository.findByNo(accountNo).orElse(new PersonalInfo(accountNo));
         model.addAttribute("personalInfo", person);
         return "personal/personal_01";
     }
@@ -40,8 +43,20 @@ public class personalController {
     @RequestMapping(value = "/personal_01_ajax", method = { RequestMethod.POST })
     public String personal_01_ajax(Locale locale, Model model, HttpServletRequest request) {
         String accountNo = loginController.getSessionAccountNo();
-        Map modelMap = model.asMap();
-        System.out.println(accountNo);
+        // Map<String, String[]> modelMap = request.getParameterMap();
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(request.getReader());
+            String jsonString = reader.readLine();
+            PersonalInfo person = JSON.parseObject(jsonString, PersonalInfo.class);
+            if (personalInfoRepository.findByNo(accountNo).isPresent()) {
+                personalInfoRepository.update(person);
+            } else {
+                personalInfoRepository.insert(person);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return "personal/personal_01";
     }
 

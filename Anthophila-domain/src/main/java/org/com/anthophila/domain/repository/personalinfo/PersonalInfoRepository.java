@@ -8,5 +8,7 @@ public interface PersonalInfoRepository {
 
     Optional<PersonalInfo> findByNo(String accountNo);
 
-    PersonalInfo find();
+    void update(PersonalInfo personalInfo);
+
+    void insert(PersonalInfo personalInfo);
 }

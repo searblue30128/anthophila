@@ -46,4 +46,116 @@
     WHERE
     account_no = #{accountNo}
   </select>
+  
+  
+  <update id="update" parameterType="PersonalInfo">
+    UPDATE
+    	personsal_info
+    SET
+		jobtitle = #{jobTitle},
+		birthday = #{birthday},
+		gendor = #{gendor},
+		name = #{name},
+		phone_no = #{phoneNo},
+		email = #{email},
+		mate = #{mate},
+		live_alone = #{liveAlone},
+		near_station = #{nearStation},
+		address = #{address},
+		residence_card_no = #{residenceCardNo},
+		residence_date_start = #{residenceDateStart},
+		residence_date_end = #{residenceDateEnd},
+		bank_account_name = #{bankAccountName},
+		bank_account_branch = #{bankAccountBranch},
+		bank_account_no = #{bankAccountNo},
+		passport_no = #{passportNo},
+		hired_insurance_insured_no = #{hiredInsuranceInsuredNo},
+		dependent_relative_name_1 = #{dependentRelativeName1},
+		dependent_relative_relation_1 = #{dependentRelativeRelation1},
+		dependent_relative_birthday_1 = #{dependentRelativeBirthday1},
+		dependent_relative_address_1 = #{dependentRelativeAddress1},
+		dependent_relative_name_2 = #{dependentRelativeName2},
+		dependent_relative_relation_2 = #{dependentRelativeRelation2},
+		dependent_relative_birthday_2 = #{dependentRelativeBirthday2},
+		dependent_relative_address_2 = #{dependentRelativeAddress2},
+		dependent_relative_name_3 = #{dependentRelativeName3},
+		dependent_relative_relation_3 = #{dependentRelativeRelation3},
+		dependent_relative_birthday_3 = #{dependentRelativeBirthday3},
+		dependent_relative_address_3 = #{dependentRelativeAddress3}
+    WHERE
+    	account_no = #{accountNo}
+  </update>
+  
+    <insert id="insert" parameterType="PersonalInfo">
+	    INSERT INTO
+	    personsal_info
+	    (
+			account_no,
+			jobtitle,
+			birthday,
+			gendor,
+			name,
+			phone_no,
+			email,
+			mate,
+			live_alone,
+			near_station,
+			address,
+			residence_card_no,
+			residence_date_start,
+			residence_date_end,
+			bank_account_name,
+			bank_account_branch,
+			bank_account_no,
+			passport_no,
+			hired_insurance_insured_no,
+			dependent_relative_name_1,
+			dependent_relative_relation_1,
+			dependent_relative_birthday_1,
+			dependent_relative_address_1,
+			dependent_relative_name_2,
+			dependent_relative_relation_2,
+			dependent_relative_birthday_2,
+			dependent_relative_address_2,
+			dependent_relative_name_3,
+			dependent_relative_relation_3,
+			dependent_relative_birthday_3,
+			dependent_relative_address_3
+	    )
+	    VALUES
+	    (
+	    	#{accountNo},
+			#{jobTitle},
+			#{birthday},
+			#{gendor},
+			#{name},
+			#{phoneNo},
+			#{email},
+			#{mate},
+			#{liveAlone},
+			#{nearStation},
+			#{address},
+			#{residenceCardNo},
+			#{residenceDateStart},
+			#{residenceDateEnd},
+			#{bankAccountName},
+			#{bankAccountBranch},
+			#{bankAccountNo},
+			#{passportNo},
+			#{hiredInsuranceInsuredNo},
+			#{dependentRelativeName1},
+			#{dependentRelativeRelation1},
+			#{dependentRelativeBirthday1},
+			#{dependentRelativeAddress1},
+			#{dependentRelativeName2},
+			#{dependentRelativeRelation2},
+			#{dependentRelativeBirthday2},
+			#{dependentRelativeAddress2},
+			#{dependentRelativeName3},
+			#{dependentRelativeRelation3},
+			#{dependentRelativeBirthday3},
+			#{dependentRelativeAddress3}
+	    )
+  </insert>
+  
 </mapper>

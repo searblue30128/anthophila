@@ -20,4 +20,14 @@ public class PersonalInfoServicelmpl implements PersonalInfoService {
     public Optional<PersonalInfo> findByNo(String accountNo) {
         return personalInfoRepository.findByNo(accountNo);
     }
+
+    @Override
+    public void update(PersonalInfo personalInfo) {
+        personalInfoRepository.update(personalInfo);
+    }
+
+    @Override
+    public void insert(PersonalInfo personalInfo) {
+        personalInfoRepository.insert(personalInfo);
+    }
 }
