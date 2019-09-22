@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.com.anthophila.domain.repository.transportationInfo.TransportationInfoRepository">
+
+  <resultMap id="TransportationInfoResultMap" type="TransportationInfo">
+	<id property="accountNo" column="account_no" />
+	<result property="transportFare" column="transport_fare" />
+	<result property="transportMonth" column="transport_month" />
+	<result property="transportInsterDate" column="transport_inster_date" />
+	<result property="transportUpdateDate" column="transport_update_date" />
+	<result property="transportPur" column="transport_pur" />
+	<result property="transportationImg" column="transportation_img" />
+  </resultMap>
+
+  <select id="findByNo" parameterType="string" resultMap="TransportationInfoResultMap">
+    SELECT
+	*
+    FROM
+    personsal_info
+    WHERE
+    account_no = #{accountNo}
+  </select>
+
+
+  <update id="update" parameterType="TransportationInfo">
+    UPDATE
+    	transportation_info
+    SET
+    	<!-- 未做成 -->
+    WHERE
+    	account_no = #{accountNo}
+  </update>
+
+   <insert id="insert" parameterType="TransportationInfo">
+	    INSERT INTO
+	    transportation_info
+	    (
+			account_no,
+			transport_fare,
+			transport_month,
+			transport_inster_date,
+			transport_update_date,
+			transport_pur,
+			transportation_img
+	    )
+	    VALUES
+	    (
+	    	#{accountNo},
+			#{transportFare},
+			#{transportMonth},
+			#{transportInsterDate},
+			#{transportUpdateDate},
+			#{transportPur},
+			#{transportationImg}
+	    )
+  </insert>
+
+</mapper>
