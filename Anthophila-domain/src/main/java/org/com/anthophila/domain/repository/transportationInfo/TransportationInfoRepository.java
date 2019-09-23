@@ -1,15 +1,15 @@
-package org.com.anthophila.domain.repository.message;
+package org.com.anthophila.domain.repository.transportationInfo;
 
-import java.util.List;
+import java.util.Optional;
 
-import org.com.anthophila.domain.model.Message;
+import org.com.anthophila.domain.model.TransportationInfo;
 
 public interface TransportationInfoRepository {
 
-	List<TransportationInfo> findByNo(String accountNo);
+	Optional<TransportationInfo> findByNo(String accountNo);
 
-	void insterTransportationInfo(TransportationInfo transportationInfo);
+	void insert(TransportationInfo transportationInfo);
 
-	void updateTransportationInfo(TransportationInfo transportationInfo);
+	void update(TransportationInfo transportationInfo);
 
 }

@@ -1,14 +1,14 @@
-package org.com.anthophila.domain.service.personalinfo;
+package org.com.anthophila.domain.service.transportationInfo;
 
 import java.util.Optional;
 
-import org.com.anthophila.domain.model.PersonalInfo;
+import org.com.anthophila.domain.model.TransportationInfo;
 
 public interface transportationInfoService {
 
-    Optional<PersonalInfo> findByNo(String accountNo);
+    Optional<TransportationInfo> findByNo(String accountNo);
 
-    void update(PersonalInfo personalInfo);
+    void update(TransportationInfo transportationInfo);
 
-    void insert(PersonalInfo personalInfo);
+    void insert(TransportationInfo transportationInfo);
 }
