@@ -1,9 +1,9 @@
 <div class="panel-group" id="accordion">
 	<div class="list-group ">
-		<a href="#" class="list-group-item list-group-item-action">ログアウト</a>
+		<a href="#" class="list-group-item list-group-item-action active">ログアウト</a>
 	</div>
 	<div class="list-group ">
-		<a href="#" data-toggle="collapse" data-target="#submenu-1" class="list-group-item list-group-item-action active">個人管理</a>
+		<a href="#" data-toggle="collapse" data-target="#submenu-1" class="list-group-item list-group-item-action">個人管理</a>
 		<ul id="submenu-1" class="collapse">
 			<a href="personal_01"><i class="fa fa-angle-double-right"></i>基本情報</a></br>
 			<a href="personal_02"><i class="fa fa-angle-double-right"></i>交通費管理</a></br>
