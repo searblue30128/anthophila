@@ -7,16 +7,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 public class H2Test {
 
-    @Test
+//    @Test
     public void testDatabaseNoMem() throws SQLException {
         testDatabase("jdbc:postgresql:Anthophila?user=postgres&password=postgres");
     }
 
-    @Test
+//    @Test
     public void testDatabaseMem() throws SQLException {
         testDatabase("jdbc:postgresql:mem:Anthophila?user=postgres&password=postgres");
     }
