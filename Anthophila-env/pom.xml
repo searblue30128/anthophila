@@ -114,5 +114,13 @@
             <type>pom</type>
         </dependency>
         <!-- == End TERASOLUNA == -->
+        
+        <dependency>
+			<groupId>org.lazyluke</groupId>
+			<artifactId>log4jdbc-remix</artifactId>
+			<version>0.2.7</version>
+		</dependency>
+		<!-- Thanks for using https://jar-download.com -->
+        
     </dependencies>
 </project>
