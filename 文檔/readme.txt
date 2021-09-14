@@ -1,0 +1,1 @@
+context.xml, server.xml --> for local tomcat 8.5 setting
