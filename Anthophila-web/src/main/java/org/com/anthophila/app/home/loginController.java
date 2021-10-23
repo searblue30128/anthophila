@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.com.anthophila.app.utility.CommonUtil;
@@ -16,13 +17,22 @@ import org.com.anthophila.domain.repository.account.AccountRepository;
 import org.com.anthophila.domain.repository.message.MessageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+//import com.cathay.wmsp.interfaces.rest.dto.PortfolioPdfReqDto;
+//
+//import io.swagger.annotations.ApiOperation;
+//import io.swagger.annotations.ApiResponse;
+//import io.swagger.annotations.ApiResponses;
 
 @Controller
 public class loginController {
@@ -47,6 +57,16 @@ public class loginController {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		return "home/login";
 	}
+	
+	/**
+	 * 取得投資組合PDF
+	 */
+//	@PostMapping("/portfolio-pdf")
+//	public ResponseEntity<Object> createJasperReport(@RequestBody PortfolioPdfReqDto portfolioPdfReqDto, HttpServletResponse response) {
+//		pdfReportService.createJasperReport(portfolioPdfReqDto, response);
+//		return ResponseEntity.ok("產出pdf");
+//	}
+	
 
 	/**
 	 * 登入邏輯 作成中
