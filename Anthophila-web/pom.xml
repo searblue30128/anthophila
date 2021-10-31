@@ -1,190 +1,184 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>Anthophila-web</artifactId>
-    <packaging>war</packaging>
-    <parent>
-        <groupId>org.com.anthophila</groupId>
-        <artifactId>Anthophila</artifactId>
-        <version>5.6.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>Anthophila-web</artifactId>
+	<packaging>war</packaging>
+	<parent>
+		<groupId>org.com.anthophila</groupId>
+		<artifactId>Anthophila</artifactId>
+		<version>5.6.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-            </plugin>
-            <!--                 https://devcenter.heroku.com/articles/java-webapp-runner -->
-               <plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-dependency-plugin</artifactId>
-	            <executions>
-	                <execution>
-	                    <phase>package</phase>
-	                    <goals><goal>copy</goal></goals>
-	                    <configuration>
-	                        <artifactItems>
-	                            <artifactItem>
-	                                <groupId>com.heroku</groupId>
-	                                <artifactId>webapp-runner</artifactId>
-	                                <version>9.0.41.0</version>
-	                                <destFileName>webapp-runner.jar</destFileName>
-	                            </artifactItem>
-	                        </artifactItems>
-	                    </configuration>
-	                </execution>
-	            </executions>
-	        </plugin>
-        </plugins>
-    </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+			</plugin>
+			<!-- https://devcenter.heroku.com/articles/java-webapp-runner -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.heroku</groupId>
+									<artifactId>webapp-runner</artifactId>
+									<version>9.0.41.0</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
-    <!--
-      Please generate the war file using following Maven command.
-
-        * Generate for local development environment
-             mvn clean package
-
-        * Generate for test or production environment (exclude the projectName-env.jar)
-             mvn -P warpack clean package
-
-        * Generate for test or production environment (include the projectName-env.jar)
-             mvn -P warpack-with-env clean package
-
-      Details of Maven profile refer to http://maven.apache.org/guides/introduction/introduction-to-profiles.html .
-    -->
-    <profiles>
-        <profile>
-            <id>local</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>${project.groupId}</groupId>
-                    <artifactId>Anthophila-env</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
-            <id>warpack</id>
-            <dependencies>
-            </dependencies>
-        </profile>
-        <profile>
-            <id>warpack-with-env</id>
-            <dependencies>
-                <dependency>
-                    <groupId>${project.groupId}</groupId>
-                    <artifactId>Anthophila-env</artifactId>
-                    <exclusions>
-                        <exclusion>
-                            <groupId>com.h2database</groupId>
-                            <artifactId>h2</artifactId>
-                        </exclusion>
-                    </exclusions>
-                </dependency>
-                <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+	<!-- Please generate the war file using following Maven command. * Generate 
+		for local development environment mvn clean package * Generate for test or 
+		production environment (exclude the projectName-env.jar) mvn -P warpack clean 
+		package * Generate for test or production environment (include the projectName-env.jar) 
+		mvn -P warpack-with-env clean package Details of Maven profile refer to http://maven.apache.org/guides/introduction/introduction-to-profiles.html 
+		. -->
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<dependencies>
 				<dependency>
-				    <groupId>org.postgresql</groupId>
-				    <artifactId>postgresql</artifactId>
-				    <version>42.2.5</version>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>Anthophila-env</artifactId>
 				</dependency>
-            </dependencies>
-        </profile>
-    </profiles>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>warpack</id>
+			<dependencies>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>warpack-with-env</id>
+			<dependencies>
+				<dependency>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>Anthophila-env</artifactId>
+					<exclusions>
+						<exclusion>
+							<groupId>com.h2database</groupId>
+							<artifactId>h2</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+				<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+				<dependency>
+					<groupId>org.postgresql</groupId>
+					<artifactId>postgresql</artifactId>
+					<version>42.2.5</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 
-    <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Anthophila-domain</artifactId>
-        </dependency>
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>Anthophila-domain</artifactId>
+		</dependency>
 
-        <!-- == Begin TERASOLUNA == -->
-        <dependency>
-            <groupId>org.terasoluna.gfw</groupId>
-            <artifactId>terasoluna-gfw-web-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.terasoluna.gfw</groupId>
-            <artifactId>terasoluna-gfw-web-jsp-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.terasoluna.gfw</groupId>
-            <artifactId>terasoluna-gfw-security-web-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.terasoluna.gfw</groupId>
-            <artifactId>terasoluna-gfw-recommended-web-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <!-- == End TERASOLUNA == -->
+		<!-- == Begin TERASOLUNA == -->
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-web-dependencies</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-web-jsp-dependencies</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-security-web-dependencies</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-recommended-web-dependencies</artifactId>
+			<type>pom</type>
+		</dependency>
+		<!-- == End TERASOLUNA == -->
 
-        <!-- == Begin Tomcat == -->
-        <!-- Servlet API 3.0 & JSP API 2.2 -->
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jsp-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
+		<!-- == Begin Tomcat == -->
+		<!-- Servlet API 3.0 & JSP API 2.2 -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
-        <!-- JavaEE/SE APIs -->
-        <!--  Required only for Tomcat. If run on other J2EE server,
-            remove this dependency and use provided tag libraries. -->
-        <dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard-jstlel</artifactId>
-        </dependency>
-        <!-- == End Tomcat == -->
+		<!-- JavaEE/SE APIs -->
+		<!-- Required only for Tomcat. If run on other J2EE server, remove this 
+			dependency and use provided tag libraries. -->
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-jstlel</artifactId>
+		</dependency>
+		<!-- == End Tomcat == -->
 
-        <!-- == Begin Database == -->
-        <!--  JDBC Driver is normally provided by application server .
-              But if you want to include JDBC Driver in the application,
-              add this dependency . -->
-<!--         <dependency> -->
-<!--             <groupId>org.postgresql</groupId> -->
-<!--             <artifactId>postgresql</artifactId> -->
-<!--             <scope>runtime</scope> -->
-<!--         </dependency> -->
-<!--         <dependency> -->
-<!--             <groupId>com.oracle.jdbc</groupId> -->
-<!--             <artifactId>ojdbc8</artifactId> -->
-<!--             <scope>runtime</scope> -->
-<!--         </dependency> -->
-        <!-- == End Database == -->
+		<!-- == Begin Database == -->
+		<!-- JDBC Driver is normally provided by application server . But if you 
+			want to include JDBC Driver in the application, add this dependency . -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.postgresql</groupId> -->
+		<!-- <artifactId>postgresql</artifactId> -->
+		<!-- <scope>runtime</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.oracle.jdbc</groupId> -->
+		<!-- <artifactId>ojdbc8</artifactId> -->
+		<!-- <scope>runtime</scope> -->
+		<!-- </dependency> -->
+		<!-- == End Database == -->
 
-        <!-- == Begin Unit Test == -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-library</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-el</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <!-- == Begin QRCode Generator == -->
+		<!-- == Begin Unit Test == -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-el</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- == Begin QRCode Generator == -->
 		<dependency>
 			<groupId>com.google.zxing</groupId>
 			<artifactId>core</artifactId>
@@ -195,41 +189,83 @@
 			<artifactId>javase</artifactId>
 			<version>3.3.2</version>
 		</dependency>
-		<!-- == End QRCode Generator == -->
-        <!--  REMOVE THIS LINE IF YOU USE Spring Test DBUnit
-        <dependency>
-            <groupId>org.dbunit</groupId>
-            <artifactId>dbunit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.springtestdbunit</groupId>
-            <artifactId>spring-test-dbunit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        -->
-        <!-- == End Unit Test == -->
+		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-annotations -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.6.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.7.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>5.3.9</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>5.3.9</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.3.9</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>5.3.9</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/org.springframework.context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.context</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
 
-        <!-- == Begin Coding Support == -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>complie</scope>
-        </dependency>
-        <!-- == End Coding Support == -->
-        
+
+		<!-- == End QRCode Generator == -->
+		<!-- REMOVE THIS LINE IF YOU USE Spring Test DBUnit <dependency> <groupId>org.dbunit</groupId> 
+			<artifactId>dbunit</artifactId> <scope>test</scope> </dependency> <dependency> 
+			<groupId>com.github.springtestdbunit</groupId> <artifactId>spring-test-dbunit</artifactId> 
+			<scope>test</scope> </dependency> -->
+		<!-- == End Unit Test == -->
+
+		<!-- == Begin Coding Support == -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>complie</scope>
+		</dependency>
+		<!-- == End Coding Support == -->
+
 		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
 		<dependency>
-		    <groupId>com.alibaba</groupId>
-		    <artifactId>fastjson</artifactId>
-		    <version>1.2.60</version>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.60</version>
 		</dependency>
-		
+
 		<dependency>
-		  <groupId>org.apache.poi</groupId>
-		  <artifactId>poi-ooxml</artifactId>
-		  <version>4.1.2</version>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.2</version>
 		</dependency>
-		
-    </dependencies>
+
+	</dependencies>
 </project>
